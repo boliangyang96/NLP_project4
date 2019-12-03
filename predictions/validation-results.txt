@@ -1,0 +1,44 @@
+Use only length of sentence as feature:
+Validation accuracy:  0.5748663101604278
+
+Use only positive sentiment score as feature:
+Validation accuracy:  0.5855614973262032
+
+Use only POS unigram as feature:
+Validation accuracy:  0.5935828877005348
+
+Use only word unigram as feature:
+Validation accuracy:  0.7058823529411765
+
+Use length & positive sentiment score:
+Validation accuracy:  0.5989304812834224
+
+Use length & POS unigram:
+Validation accuracy:  0.5882352941176471
+
+Use length & word unigram:
+Validation accuracy:  0.7032085561497327
+
+Use positive sentiment score & POS unigram:
+Validation accuracy:  0.6096256684491979
+
+Use positive sentiment score & word unigram:
+Validation accuracy:  0.7112299465240641
+
+Use POS unigram & word unigram:
+Validation accuracy:  0.7112299465240641
+
+Use length & positive sentiment score & POS unigram:
+Validation accuracy:  0.5989304812834224
+
+Use length & positive sentiment score & word unigram:
+Validation accuracy:  0.7085561497326203
+
+Use length & POS unigram & word unigram:
+Validation accuracy:  0.713903743315508
+
+Use positive sentiment score & POS unigram & word unigram:
+Validation accuracy:  0.713903743315508
+
+Use all (length & positive sentiment score & POS unigram & word unigram):
+Validation accuracy:  0.713903743315508
