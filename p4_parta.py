@@ -35,7 +35,7 @@ def fromTestFile(filename):
             options.append([line[5].lower(),line[6].lower()])
     return id_, sentences, options
 
-# features: length of the sentence, sentiment_score of the sentnece, part_of_speech tag sequence, word sequence
+# features: length of the sentence, sentiment_score of the sentnece, part_of_speech tag unigram, word unigram
 def createFeatures(train_options):
     features = []
     analyser = SentimentIntensityAnalyzer()
@@ -47,9 +47,9 @@ def createFeatures(train_options):
         temp_feature["sentiment_score"] = analyser.polarity_scores(option1)['pos']
         pos = nltk.pos_tag(nltk.word_tokenize(option1))
 
-        for i in range(len(pos)):
-            temp_feature["pos=%s"%(pos[i][1])] = True
-            temp_feature["word=%s"%(pos[i][0])] = True
+        for j in range(len(pos)):
+            temp_feature["pos=%s"%(pos[j][1])] = True
+            temp_feature["word=%s"%(pos[j][0])] = True
         features.append(temp_feature)
 
         temp_feature = dict()
@@ -57,9 +57,9 @@ def createFeatures(train_options):
         temp_feature["sentiment_score"] = analyser.polarity_scores(option2)['pos']
         pos = nltk.pos_tag(nltk.word_tokenize(option2))
 
-        for i in range(len(pos)):
-            temp_feature["pos=%s"%(pos[i][1])] = True
-            temp_feature["word=%s"%(pos[i][0])] = True
+        for j in range(len(pos)):
+            temp_feature["pos=%s"%(pos[j][1])] = True
+            temp_feature["word=%s"%(pos[j][0])] = True
         features.append(temp_feature)
         # print(features)
         # break
