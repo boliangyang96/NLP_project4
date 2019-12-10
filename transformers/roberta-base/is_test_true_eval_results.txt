@@ -1,0 +1,7 @@
+model           =roberta-base
+total batch size=32
+train num epochs=3
+fp16            =False
+max seq length  =80
+eval_acc = 0.4938535542490647
+eval_loss = 0.6932034003428924

@@ -75,10 +75,10 @@ def processLabels(train_labels):
             labels.append(0)
             labels.append(1)
     return labels
-    
+
 
 if __name__ == "__main__":
-    train_sentences, train_options, train_labels = fromFile('train.csv')
+    train_sentences, train_options, train_labels = fromFile('./data/train.csv')
     train_features = createFeatures(train_options)
     labels = processLabels(train_labels)
     ## use logistic regression model
@@ -90,7 +90,7 @@ if __name__ == "__main__":
     ## train model
     clf = model.fit(train_features_trans, labels)
 
-    dev_sentences, dev_options, dev_labels = fromFile('dev.csv')
+    dev_sentences, dev_options, dev_labels = fromFile('./data/dev.csv')
     dev_features = createFeatures(dev_options)
     dev_features_trans = vector.transform(dev_features)
 
@@ -100,7 +100,7 @@ if __name__ == "__main__":
         score2 = clf.predict_proba(dev_features_trans[2*i+1].reshape(1, -1))
         if (score1[0][1] > score2[0][1]): predict_labels.append(1)
         else: predict_labels.append(2)
-    
+
     count = 0
     for i in range(len(dev_labels)):
         if predict_labels[i] == dev_labels[i]:
@@ -109,7 +109,7 @@ if __name__ == "__main__":
     print("Weights: ", clf.coef_)
 
     '''
-    test_id, test_sentences, test_options = fromTestFile('test.csv')
+    test_id, test_sentences, test_options = fromTestFile('./data/test.csv')
     test_features = createFeatures(test_options)
     test_features_trans = vector.transform(test_features)
     predict_test_labels = []
@@ -123,4 +123,3 @@ if __name__ == "__main__":
     for i in range(len(test_id)):
         outputFile.write(test_id[i]+','+str(predict_test_labels[i])+'\n')
     outputFile.close()'''
-    

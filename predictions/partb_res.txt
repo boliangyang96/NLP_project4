@@ -1,0 +1,14 @@
+python3 ./examples/run_multiple_choice.py --model_type roberta --task_name custom --model_name_or_path roberta-base --do_train --do_eval --do_test --do_lower_case --data_dir ../data --learning_rate 5e-5 --num_train_epochs 3 --max_seq_length 80 --output_dir ../part2 --per_gpu_train_batch_size=16 --per_gpu_eval_batch_size=16 --gradient_accumulation_steps=2 --overwrite_output
+
+epoch   dev accu                dev loss
+(learning rate ==> 5e-5)
+1       0.8368983957219251      0.39241307228803635
+2       0.9064171122994652      0.24491003109142184
+3       0.93048128342246        0.18785089643400474
+
+
+(learning rate ==> 1e-5)
+3       0.8983957219251337      0.34459371368090314
+
+(gradient_accumulation_steps=1)
+3       0.8823529411764706      0.49496506090957715
